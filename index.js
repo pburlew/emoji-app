@@ -7,8 +7,26 @@ for (let i = 0; i < myEmojis.length; i++) {
     emojiContainer.append(emoji)
 }
 
+renderEmojis()
+
 const pushBtn = document.getElementById("push-btn")
 pushBtn.addEventListener("click", function(){
     const emojiInput = document.getElementById("emoji-input")
-    console.log(emojiInput.value)
+    if (emojiInput.value) {
+        myEmojis.push(emojiInput.value)
+        emojiInput.value = ""
+        emojiContainer.innerHTML = ""
+        renderEmojis()
+    }
+})
+
+const unshiftBtn = document.getElementById("unshift-btn")
+unshiftBtn.addEventListener("click", function(){
+    const emojiInput = document.getElementById("emoji-input")
+    if (emojiInput.value) {
+        myEmojis.unshift(emojiInput.value)
+        emojiInput.value = ""
+        emojiContainer.innerHTML = ""
+        renderEmojis()
+    }
 })
